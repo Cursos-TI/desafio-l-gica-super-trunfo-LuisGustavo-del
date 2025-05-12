@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h> 
 
      //Desafio Super Trunfo - Países
 int main() {
@@ -9,6 +12,7 @@ int main() {
    int opcaomenu;
    float area1, area2;
    float pib1, pib2; 
+   float somadosatributos, somadosatributos2;
    char nomedojogador[80];
    char codigo1[50], codigo2[50];
    char cidade1[50], cidade2[50];
@@ -79,7 +83,7 @@ int main() {
    superpoder2 = ((float)população2 + area2 + pib2 + turisticos2 + pibcapital2 + inversodensidade2);
     
      //Tema 5 - Exibindo o Resultado Final das cartas
-     //Escrevendo os dados da Primeira carta 
+     //Exibindo os dados da Primeira carta 
      //Pular Linha para os dados da primeira carta
 
   printf("\n\n");
@@ -97,7 +101,7 @@ int main() {
      //Pular Linha para os dados da segunda carta
    printf("\n\n");
 
-     // Escrevendo os dados da segunda carta 
+     //Exibindo os dados da segunda carta 
   printf("Carta 2\n");
   printf("Código: %s \n", codigo2);
   printf("Cidade: %s \n", cidade2);
@@ -125,6 +129,8 @@ int main() {
 
   printf("\n");
 
+  //Tema 7
+  // menu interativo
   printf("## MENU INTERATIVO DE COMPARAÇÃO ##\n");
   printf("Escolha o atributo que deseja comparar: \n");
   printf("1 - População \n");
@@ -132,55 +138,66 @@ int main() {
   printf("3 - PIB \n");
   printf("4 - Número de Pontos Turísticos \n");
   printf("5 - Densidade Populacional \n");
+  printf("6 - soma dos atributos \n");
   printf(" Digite a opção desejada:\n");
-
+  
+  //Tema 8
+  //comparação dos valores;
   scanf("%d", &opcaomenu);
   if (opcaomenu ==1){
     if (população1 > população2){
-        printf(" O pais %s GANHOU, pois tem a população de %d e é maior que a população de %s, que tem %d de população ",cidade1,população1,cidade2,população2);
+        printf(" A Cidade %s GANHOU, pois tem a população de %d e é maior que a população de %s, que tem %d de população ",cidade1,população1,cidade2,população2);
     }else if (população1 < população2){
-        printf(" O pais %s GANHOU, pois tem a população de %d e é maior que a população de %s, que tem %d de população ",cidade2,população2,cidade1,população1);
+        printf(" A Cidade %s GANHOU, pois tem a população de %d e é maior que a população de %s, que tem %d de população ",cidade2,população2,cidade1,população1);
     }else{
-        printf(" Os dois países tem a mesma população de %d ", população1);
+        printf(" As duas Cidade tem a mesma população de %d ", população1);
     }
 }else if (opcaomenu ==2){
     if (area1 > area2){
-        printf(" O pais %s GANHOU, pois tem a área de %.2f e é maior que a área de %s, que tem %.2f de área ",cidade1,area1,cidade2,area2);
+        printf(" A Cidade %s GANHOU, pois tem a área de %.2f e é maior que a área de %s, que tem %.2f de área ",cidade1,area1,cidade2,area2);
     }else if (area1 < area2){
-        printf(" O pais %s GANHOU, pois tem a área de %.2f e é maior que a área de %s, que tem %.2f de área ",cidade2,area2,cidade1,area1);
+        printf(" A Cidade %s GANHOU, pois tem a área de %.2f e é maior que a área de %s, que tem %.2f de área ",cidade2,area2,cidade1,area1);
     }else{
-        printf(" Os dois países tem a mesma área de %.2f ", area1);
+        printf(" As duas Cidade tem a mesma área de %.2f ", area1);
     }
 }else if (opcaomenu ==3){
     if (pib1 > pib2){
-        printf(" O pais %s GANHOU, pois tem o PIB de %.2f e é maior que o PIB de %s, que tem %.2f de PIB ",cidade1,pib1,cidade2,pib2);
+        printf(" A Cidade %s GANHOU, pois tem o PIB de %.2f e é maior que o PIB de %s, que tem %.2f de PIB ",cidade1,pib1,cidade2,pib2);
     }else if (pib1 < pib2){
-        printf(" O pais %s GANHOU, pois tem o PIB de %.2f e é maior que o PIB de %s, que tem %.2f de PIB ",cidade2,pib2,cidade1,pib1);
+        printf(" A Cidade %s GANHOU, pois tem o PIB de %.2f e é maior que o PIB de %s, que tem %.2f de PIB ",cidade2,pib2,cidade1,pib1);
     }else{
-        printf(" Os dois países tem o mesmo PIB de %.2f ", pib1);
+        printf(" As duas Cidade tem o mesmo PIB de %.2f ", pib1);
     }
 }else if (opcaomenu ==4){
     if (turisticos1 > turisticos2){
-        printf(" O pais %s GANHOU, pois tem o número de pontos turísticos de %d e é maior que o número de pontos turísticos de %s, que tem %d de pontos turísticos ",cidade1,turisticos1,cidade2,turisticos2);
+        printf(" A Cidade %s GANHOU, pois tem o número de pontos turísticos de %d e é maior que o número de pontos turísticos de %s, que tem %d de pontos turísticos ",cidade1,turisticos1,cidade2,turisticos2);
     }else if (turisticos1 < turisticos2){
-        printf(" O pais %s GANHOU, pois tem o número de pontos turísticos de %d e é maior que o número de pontos turísticos de %s, que tem %d de pontos turísticos ",cidade2,turisticos2,cidade1,turisticos1);
+        printf(" A Cidade %s GANHOU, pois tem o número de pontos turísticos de %d e é maior que o número de pontos turísticos de %s, que tem %d de pontos turísticos ",cidade2,turisticos2,cidade1,turisticos1);
     }else{
-        printf(" Os dois países tem o mesmo número de pontos turísticos de %d ", turisticos1);
+        printf(" As duas Cidade tem o mesmo número de pontos turísticos de %d ", turisticos1);
     }
 }else if (opcaomenu ==5){
     if (densidade1 < densidade2){
-        printf(" O pais %s GANHOU, pois tem a densidade populacional de %.2f e é menor que a densidade populacional de %s, que tem %.2f de densidade populacional ",cidade1,densidade1,cidade2,densidade2);
+        printf(" A Cidade %s GANHOU, pois tem a densidade populacional de %.2f e é menor que a densidade populacional de %s, que tem %.2f de densidade populacional ",cidade1,densidade1,cidade2,densidade2);
     }else if (densidade1 > densidade2){
-        printf(" O pais %s GANHOU, pois tem a densidade populacional de %.2f e é menor que a densidade populacional de %s, que tem %.2f de densidade populacional ",cidade2,densidade2,cidade1,densidade1);
+        printf(" A Cidade %s GANHOU, pois tem a densidade populacional de %.2f e é menor que a densidade populacional de %s, que tem %.2f de densidade populacional ",cidade2,densidade2,cidade1,densidade1);
     }else{
-        printf(" Os dois países tem a mesma densidade populacional de %.2f ", densidade1);
+        printf(" As duas Cidade tem a mesma densidade populacional de %.2f ", densidade1);
     }
+}else if (opcaomenu ==6){
+    if (somadosatributos > somadosatributos2){
+        printf(" A Cidade %s GANHOU ",cidade1,somadosatributos,cidade1,somadosatributos2);
+    }else if (somadosatributos < somadosatributos2){
+        printf(" A Cidade %s GANHOU ",cidade2,somadosatributos2,cidade1,somadosatributos);
+    }else{
+        printf(" As duas Cidade tem a mesma densidade populacional de %.2f ", somadosatributos);
+    }
+
 }else{
     printf(" Opção inválida! \n");
-    printf(" Você digitou a opção %d, mas as opções válidas são de 1 a 5. \n", opcaomenu);
+    printf(" Você digitou a opção %d, mas as opções válidas são de 1 a 6. \n", opcaomenu);
     printf(" Por favor, digite uma opção válida. \n");
-    printf(" Obrigado por usar o nosso programa! \n");
-    printf(" Até logo, %s! \n", nomedojogador);
+    printf(" Jogo encerrado!, %s! \n", nomedojogador);
          
    
 
