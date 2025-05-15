@@ -89,6 +89,7 @@ int main() {
     printf("Densidade: %.2f hab/km²\nPIB per capita: R$ %.2f\n", densidade2, pibcapita2);
 
     // Comparações
+    //Resultado 1 para verdadeiro – Carta 1 vence – e 0 para falso – Carta 2 vence
     printf("\n--- Comparações Rápidas ---\n");
     printf("População: %d\n", populacao1 > populacao2);
     printf("Área: %d\n", area1 > area2);
